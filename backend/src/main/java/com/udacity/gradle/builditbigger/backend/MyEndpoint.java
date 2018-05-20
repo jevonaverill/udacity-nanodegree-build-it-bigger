@@ -38,12 +38,4 @@ public class MyEndpoint {
         response.setData(jokes.tellJokeFromJokesLibrary());
         return response;
     }
-
-    @ApiMethod(name = "setJoke")
-    public MyBean setJoke() {
-        MyBean response = new MyBean();
-        Jokes jokes = new Jokes();
-        response.setData(jokes.tellJokeFromJokesLibrary());
-        return response;
-    }
 }

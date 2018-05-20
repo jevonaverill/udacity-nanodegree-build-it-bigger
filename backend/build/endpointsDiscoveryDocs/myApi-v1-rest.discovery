@@ -51,17 +51,6 @@
    "scopes": [
     "https://www.googleapis.com/auth/userinfo.email"
    ]
-  },
-  "setJoke": {
-   "httpMethod": "POST",
-   "id": "myApi.setJoke",
-   "path": "setJoke",
-   "response": {
-    "$ref": "MyBean"
-   },
-   "scopes": [
-    "https://www.googleapis.com/auth/userinfo.email"
-   ]
   }
  },
  "name": "myApi",

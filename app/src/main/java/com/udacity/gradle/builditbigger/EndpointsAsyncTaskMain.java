@@ -47,7 +47,7 @@ public class EndpointsAsyncTaskMain extends AsyncTask<Pair<Context, String>, Voi
 
         try {
 //            return myApiService.sayHi(name).execute().getData();
-            return myApiService.setJoke().execute().getData();
+            return myApiService.getJoke().execute().getData();
         } catch (IOException e) {
             return e.getMessage();
         }
