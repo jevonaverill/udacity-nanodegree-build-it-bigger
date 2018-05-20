@@ -1,0 +1,10 @@
+<resources>
+    <!-- https://developers.google.com/admob/android/interstitial -->
+    <!-- test interstitial ad unit id -->
+    <string name="interstitial_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+    <!-- https://developers.google.com/admob/android/banner -->
+    <!-- test banner ad unit id -->
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <!-- test device id -->
+    <!--<string name="device_id" translatable="false">1E7145215208BE449B00742AA5D68BE0</string>-->
+</resources>
