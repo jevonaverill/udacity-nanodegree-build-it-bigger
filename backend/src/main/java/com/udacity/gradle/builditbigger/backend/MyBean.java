@@ -15,14 +15,4 @@ public class MyBean {
         myData = data;
     }
 
-//    private Jokes jokes;
-
-//    public MyBean() {
-//        jokes = new Jokes();
-//    }
-
-//    public String getJoke() {
-//        return jokes.tellRandomJokeFromJokesLibrary();
-//    }
-
 }

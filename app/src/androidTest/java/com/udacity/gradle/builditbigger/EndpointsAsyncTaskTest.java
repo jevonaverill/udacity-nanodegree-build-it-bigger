@@ -12,6 +12,7 @@ import static android.support.test.InstrumentationRegistry.getContext;
 import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertTrue;
 
+// TODO ("Step 4: Add Functional Tests")
 @RunWith(AndroidJUnit4.class)
 public class EndpointsAsyncTaskTest {
 
