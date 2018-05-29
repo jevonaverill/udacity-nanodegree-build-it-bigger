@@ -30,6 +30,7 @@
         </activity>
 
         <!--Include the AdActivity configChanges and theme. -->
+        <!-- Only valid for free flavor -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"

@@ -31,11 +31,20 @@ public class MyEndpoint {
         return response;
     }
 
-    @ApiMethod(name = "getJoke")
-    public MyBean getJoke() {
+    @ApiMethod(name = "tellJoke")
+    public MyBean tellJoke() {
         MyBean response = new MyBean();
         Jokes jokes = new Jokes();
         response.setData(jokes.tellJokeFromJokesLibrary());
         return response;
     }
+
+    @ApiMethod(name = "tellRandomJoke")
+    public MyBean tellRandomJoke() {
+        MyBean response = new MyBean();
+        Jokes jokes = new Jokes();
+        response.setData(jokes.tellRandomJokeFromJokesLibrary());
+        return response;
+    }
+
 }

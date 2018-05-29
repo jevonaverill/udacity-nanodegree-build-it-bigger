@@ -1,5 +1,7 @@
 package com.jevonaverill.jokesandroidlibrary;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -35,6 +37,13 @@ public class JokeActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public static Intent makeIntent(Context context, String result) {
+        final Intent intent = new Intent(context, JokeActivity.class);
+        intent.putExtra(JokeActivity.JOKE_KEY, result);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        return intent;
     }
 
 }

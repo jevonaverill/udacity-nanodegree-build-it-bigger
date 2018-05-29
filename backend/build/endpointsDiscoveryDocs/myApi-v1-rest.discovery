@@ -20,17 +20,6 @@
  "id": "myApi:v1",
  "kind": "discovery#restDescription",
  "methods": {
-  "getJoke": {
-   "httpMethod": "GET",
-   "id": "myApi.getJoke",
-   "path": "mybean",
-   "response": {
-    "$ref": "MyBean"
-   },
-   "scopes": [
-    "https://www.googleapis.com/auth/userinfo.email"
-   ]
-  },
   "sayHi": {
    "httpMethod": "POST",
    "id": "myApi.sayHi",
@@ -45,6 +34,28 @@
     }
    },
    "path": "sayHi/{name}",
+   "response": {
+    "$ref": "MyBean"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "tellJoke": {
+   "httpMethod": "POST",
+   "id": "myApi.tellJoke",
+   "path": "tellJoke",
+   "response": {
+    "$ref": "MyBean"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "tellRandomJoke": {
+   "httpMethod": "POST",
+   "id": "myApi.tellRandomJoke",
+   "path": "tellRandomJoke",
    "response": {
     "$ref": "MyBean"
    },

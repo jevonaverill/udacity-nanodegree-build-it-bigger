@@ -1,22 +1,26 @@
 package com.udacity.gradle.builditbigger;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.jevonaverill.jokesandroidlibrary.JokeActivity;
-import com.jevonaverill.jokeslibrary.Jokes;
 
 public class MainActivity extends AppCompatActivity {
+
+    ProgressBar mProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mProgressBar = (ProgressBar) findViewById(R.id.progressbar);
+
         getSupportFragmentManager().beginTransaction().
                 add(R.id.fragment, new MainActivityFragment()).commit();
     }
@@ -44,38 +48,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        // Toast.makeText(this, "Hello, this is Jevon Averill!", Toast.LENGTH_SHORT).show();
+        new EndpointsAsyncTask() {
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                if (mProgressBar != null) {
+                    mProgressBar.setVisibility(View.VISIBLE);
+                }
+            }
 
-        // TODO ("Step 1: Create a Java library - call jokes from created java library")
-        // Jokes jokes = new Jokes();
-        // Toast.makeText(this, jokes.tellFromJokesLibrary(), Toast.LENGTH_SHORT).show();
-
-        // TODO ("Step 2: Create an Android library)
-        // launchJokeActivity(view);
-
-        // TODO ("Step 3: Create GCE Module)
-        // 1st option
-        // new EndpointsAsyncTaskMain().execute(new Pair<Context, String>(this, "Jevon"));
-        // 2nd option
-        // new EndpointsAsyncTaskMain().execute();
-
-        // TODO ("Step 5")
-        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressbar);
-        new EndpointsAsyncTask(this, progressBar).execute();
+            @Override
+            protected void onPostExecute(String result) {
+                super.onPostExecute(result);
+                if (result != null) {
+                    startActivity(JokeActivity.makeIntent(MainActivity.this, result));
+                } else {
+                    Toast.makeText(MainActivity.this, "No result found while fetching Jokes!", Toast
+                            .LENGTH_SHORT).show();
+                }
+                if (mProgressBar != null) {
+                    mProgressBar.setVisibility(View.GONE);
+                }
+            }
+        }.execute();
     }
 
-    // TODO ("Step 2: Create an Android library)
-    public void launchJokeActivity(View view) {
-        Intent intent = new Intent(this, JokeActivity.class);
-        Jokes jokes = new Jokes();
-
-        // normal joke
-        // String joke = jokes.tellJokeFromJokesLibrary();
-
-        // random joke
-        String joke = jokes.tellRandomJokeFromJokesLibrary();
-
-        intent.putExtra(JokeActivity.JOKE_KEY, joke);
-        startActivity(intent);
-    }
 }
